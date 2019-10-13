@@ -24,8 +24,8 @@
         if (CheckLogin == true){
             //out.println("Login Sucessfuly");
             session.setAttribute("Logon", "True");
-            session.setAttribute("sUID", loginServices.UserID.toString());
-            session.setAttribute("sStatus", loginServices.Status.toString());
+            session.setAttribute("sUID", ""+loginServices.UserID.toString());
+            session.setAttribute("sStatus", ""+loginServices.Status.toString());
             response.sendRedirect("checkPermissionRoute.jsp");
         }
         else {

@@ -4,35 +4,38 @@
     Author     : ISB-Programer
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 
 <%
-    if(session.getAttribute("Logon") != null)
-    {
+
         //String sStatus = null;
+        
         String sStatus = String.valueOf(session.getAttribute("sStatus"));
-        if
+
+
+        
         String STUDENT = "STUDENT";
         String TEACHER = "TEACHER";
-        if(session.getAttribute("Logon") == "True")
+        
+
+
+        if(session.getAttribute("Logon").equals("True"))
         {
             //When Login Sucessful Will do This
-            if(sStatus == STUDENT) {
+            if(sStatus.equals(STUDENT)) {
                 response.sendRedirect("index_student.jsp");
             }
-            else if (sStatus == TEACHER) {
+            else if (sStatus.equals(TEACHER)) {
                 response.sendRedirect("index_teacher.jsp");
             }
             else {
                 response.sendRedirect("logout.jsp");
             }
+            
         }
         else{
             response.sendRedirect("logout.jsp");
         }
-    }
-    else {
-        response.sendRedirect("logout.jsp");
-    }
+
 %>

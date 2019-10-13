@@ -12,14 +12,23 @@ import javax.sql.*;
  * @author ISB-Programer
  */
 public class _Config {
+    
+    //--------------- Config DB Here
     public static String host = "localhost";
     public static String username = "root";
     public static String password = "";
     public static String database = "db_gpax";
+    //---------------Config DB Here
     
+    
+    
+    public String UrlSQL = "jdbc:mysql://"+host+"/"+database+"?&serverTimezone=UTC&user="+username+"&password="+password+"";
     public Connection UrlConnect = null;
-    
     public Statement sqlQuery = null;
     
+    public Connection getSQLUrl() throws SQLException  {
+        UrlConnect = DriverManager.getConnection(UrlSQL);
+        return UrlConnect;
+    }
     
 }

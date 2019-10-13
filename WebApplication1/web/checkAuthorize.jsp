@@ -5,9 +5,9 @@
 --%>
 
 <%
-    if(session.getAttribute("Logon") != null)
-    {
-        if(session.getAttribute("Logon") == "True")
+        String Logon = String.valueOf(session.getAttribute("Logon"));
+        
+        if(Logon.equals("True"))
         {
             
         }
@@ -17,11 +17,6 @@
             session.removeAttribute("sStatus");
             response.sendRedirect("login.jsp");
         }
-    }
-    else {
-        session.removeAttribute("Logon");
-        session.removeAttribute("sUID");
-        session.removeAttribute("sStatus");
-        response.sendRedirect("login.jsp");
-    }
+
+
 %>
